@@ -1,0 +1,87 @@
+.center-text {
+  text-align: center;
+}
+
+.header-toolbar {
+  --background: #FFA500; /* Fondo naranja */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.header-toolbar ion-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+
+.day-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.day-buttons ion-button {
+  --background: white;
+  --color: black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.day-buttons ion-button[color="secondary"] {
+  --background: #FFA500; /* Fondo naranja para el día seleccionado */
+  --color: white;
+}
+
+.day-section {
+  margin-bottom: 20px;
+}
+
+.asignaturas-container {
+  padding: 16px;
+}
+
+.asignatura-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.asignatura-item {
+  background-color: #333; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-bottom: 10px; /* Espacio entre elementos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+}
+
+.asignatura-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.asignatura-label {
+  font-weight: bold;
+  color: #FFA500; /* Color naranja */
+}
+
+.asignatura-value {
+  color: white; /* Texto blanco */
+}
+
+.back-button {
+  margin: 20px;
+  --background: #FFA500; /* Fondo naranja */
+  --color: white; /* Texto blanco */
+}
+
+.clase-card{
+  background-color: #FF33364d;
+}
+

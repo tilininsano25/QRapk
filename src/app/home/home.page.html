@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ user ? 'Bienvenido' : 'Inicio de sesión' }}</ion-title>
+    <ion-buttons slot="end" *ngIf="user">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="!user; else homeContent">
+    <app-login (loginSuccess)="onLoginSuccess()"></app-login>
+  </ng-container>
+
+  <ng-template #homeContent>
+    <ion-card class="welcome-card">
+      <ion-card-content>
+        <ion-img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg" alt="avatar"></ion-img>
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title>Bienvenido, {{user.nombre}}</ion-card-title>
+        <ion-card-subtitle>{{user.carrera}} - {{user.universidad}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Gestiona tu asistencia y mantente al día con tu perfil académico.</p>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-card button (click)="goToScanQr()" class="action-card">
+            <ion-card-content class="ion-text-center">
+              <ion-icon name="qr-code-outline" class="card-icon"></ion-icon>
+              <ion-card-title>Escanear QR</ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card button (click)="goToProfile()" class="action-card">
+            <ion-card-content class="ion-text-center">
+              <ion-icon name="person-outline" class="card-icon"></ion-icon>
+              <ion-card-title>Ver Perfil</ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+</ion-content>

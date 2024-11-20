@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Escanear Código QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="8" size-sm="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Ingrese el Código y Escanee el QR</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">Código de Verificación</ion-label>
+              <ion-input type="text" maxlength="7" [(ngModel)]="verificationCode" (ionInput)="formatCode($event)"></ion-input>
+            </ion-item>
+            <ion-button expand="block" color="primary" [disabled]="!isCodeValid()" (click)="scanQr()">Iniciar Escaneo</ion-button>
+            <ion-text color="danger" *ngIf="errorMessage">{{ errorMessage }}</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="barcodes.length > 0">
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Códigos Escaneados</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item *ngFor="let barcode of barcodes">
+                <ion-label>{{ barcode.format }}</ion-label>
+                <ion-input type="text" [value]="barcode.rawValue" readonly></ion-input>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

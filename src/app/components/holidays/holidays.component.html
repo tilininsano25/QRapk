@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Días Festivos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6" size-lg="4" *ngFor="let holiday of holidays">
+            <ion-card class="custom-card">
+              <ion-card-header>
+                <ion-card-title>{{ holiday.name }}</ion-card-title>
+                <ion-card-subtitle>{{ holiday.date.iso }}</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <p>{{ holiday.description }}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreHolidays($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más días festivos..."></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

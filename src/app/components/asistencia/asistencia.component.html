@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Formulario para registrar asistencia -->
+  <form (ngSubmit)="saveAsistenciaData()">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Registrar Asistencia</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Asignatura</ion-label>
+          <ion-select [(ngModel)]="selectedAsignaturaCodigo" name="asignatura" (ionChange)="onAsignaturaChange()" required>
+            <ion-select-option *ngFor="let asignatura of asignaturas$ | async" [value]="asignatura.codigo">
+              {{ asignatura.codigo }} - {{ asignatura.nombre }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Fecha</ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="asistenciaData.fecha" name="fecha" class="custom-datetime" required></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Presente</ion-label>
+          <ion-checkbox [(ngModel)]="asistenciaData.presente" name="presente"></ion-checkbox>
+        </ion-item>
+        <ion-button expand="full" type="submit">Guardar Asistencia</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+  <!-- Lista de asistencias -->
+  <ion-card *ngIf="asistencias$ | async as asistencias; else noAsistencias">
+    <ion-card-header>
+      <ion-card-title>Asistencias Registradas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let asistencia of asistencias">
+          <ion-label>
+            <h2>Fecha: {{ asistencia.fecha }}</h2>
+            <p>Presente: {{ asistencia.presente ? 'Sí' : 'No' }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ng-template #noAsistencias>
+    <p>No hay asistencias registradas para esta asignatura.</p>
+  </ng-template>
+  <br>
+  <app-holidays></app-holidays>
+  <ion-button [routerLink]="['/user-profile']">Volver al Perfil de Usuario</ion-button>
+</ion-content>

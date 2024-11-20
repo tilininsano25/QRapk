@@ -1,0 +1,32 @@
+ion-item {
+  --background: #2b2b2b; /* Fondo oscuro suave */
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --border-radius: 12px;
+  margin-bottom: 20px;
+  --color: #ffffff; /* Texto blanco */
+}
+
+ion-input {
+  font-size: 24px; /* Aumentar el tamaño de la fuente */
+  letter-spacing: 4px; /* Espaciado entre caracteres */
+  text-align: center; /* Centrar el texto */
+  color: #ffb800; /* Color amarillo para el texto */
+  --placeholder-color: #f7f7f7; /* Color claro para el placeholder */
+}
+
+ion-button {
+  margin-top: 20px;
+  font-size: 18px;
+  height: 50px;
+  --border-radius: 12px;
+  --background: #ffb800; /* Fondo amarillo */
+  --color: #1a1a1a; /* Texto negro */
+}
+
+ion-card {
+  background-color: #1a1a1a; /* Fondo oscuro para el card */
+  color: #ffffff; /* Texto blanco */
+  --border-radius: 16px;
+  padding: 16px;
+}

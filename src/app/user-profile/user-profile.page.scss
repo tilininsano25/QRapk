@@ -1,0 +1,60 @@
+.profile-avatar {
+  display: block;
+  margin: 0 auto;
+  width: 120px; // Aumentar el tamaño del avatar
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--ion-color-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Añadir sombra
+}
+
+ion-card {
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 10px; // Bordes redondeados
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Sombra para el card
+}
+
+ion-card-header {
+  background-color: var(--ion-color-light);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top-left-radius: 10px; // Bordes redondeados
+  border-top-right-radius: 10px;
+}
+
+ion-card-title {
+  font-size: 1.8rem; // Aumentar tamaño de fuente
+  font-weight: bold;
+  color:black;
+}
+
+ion-card-subtitle {
+  font-size: 1.2rem; // Aumentar tamaño de fuente
+  color: var(--ion-color-medium);
+}
+
+ion-button {
+  margin-top: 20px;
+  background-color: var(--ion-color-primary); // Cambiar color de fondo
+  color: white; // Cambiar color de texto
+  border-radius: 5px; // Bordes redondeados
+  transition: background-color 0.3s; // Transición suave
+}
+
+ion-button:hover {
+  background-color: var(--ion-color-dark); // Color al pasar el mouse
+}
+
+.ion-card-content{
+  background-color: orange;
+}
+
+.letra-blanca{
+  color: white;
+}
+
+.letra-negra{
+  color: black;
+}

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary" class="header-toolbar">
+    <ion-title>Horario</ion-title>
+    <div class="day-buttons">
+      <ion-button *ngFor="let day of getDaysOfWeek()" (click)="onDayChange(day)" [color]="selectedDay === day ? 'secondary' : 'light'">
+        {{ day[0] }}
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 class="center-text">Lista de Asignaturas</h2>
+  <div *ngIf="asignaturasGroupedByDay$ | async as asignaturasGroupedByDay; else loading">
+    <ng-container *ngFor="let day of getDaysOfWeek()">
+      <div *ngIf="selectedDay === day" class="day-section">
+        <h3 class="center-text">{{ day }}</h3>
+        <div class="asignaturas-container">
+          <ul class="asignatura-list">
+            <li *ngFor="let asignatura of asignaturasGroupedByDay[day]" class="asignatura-item">
+              <div class="asignatura-detail">
+                <span class="asignatura-label">Nombre:</span>
+                <span class="asignatura-value">{{ asignatura.nombre }}</span>
+              </div>
+              <div class="asignatura-detail">
+                <span class="asignatura-label">Profesor:</span>
+                <span class="asignatura-value">{{ asignatura.profesor }}</span>
+              </div>
+              <div class="asignatura-detail">
+                <span class="asignatura-label">Día:</span>
+                <span class="asignatura-value">{{ asignatura.dia }}</span>
+              </div>
+              <div class="asignatura-detail">
+                <span class="asignatura-label">Hora:</span>
+                <span class="asignatura-value">{{ asignatura.hora_inicio }} - {{ asignatura.hora_final }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </ng-container>
+    <ion-button [routerLink]="['/user-profile']" expand="full" class="back-button">Volver al Perfil de Usuario</ion-button>
+  </div>
+  <ng-template #loading>
+    <p>Cargando asignaturas...</p>
+  </ng-template>
+</ion-content>

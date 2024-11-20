@@ -1,0 +1,42 @@
+.custom-datetime {
+    --ion-color-base: black; 
+    --ion-color-contrast: white; 
+    --ion-color-primary: #FFA500; 
+    --ion-background-color: white; 
+    color: black;
+}
+  
+  .custom-datetime .datetime-text,
+  .custom-datetime .datetime-picker .picker-item {
+    color: black !important; /* Asegúrate de que el texto del calendario sea negro */
+  }
+
+
+.ion-toolbar{
+    background-color: #FFA500;
+
+
+}
+.center-text {
+    text-align: center;
+  }
+  
+  .header-toolbar {
+    --background: #FFA500; /* Fondo naranja */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+  }
+  
+  .header-toolbar ion-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+  }
+  
+  
+
+.ion-card-title{
+    color: white;
+}
