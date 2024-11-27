@@ -30,3 +30,14 @@ ion-card {
   --border-radius: 16px;
   padding: 16px;
 }
+
+.success-card {
+  margin-top: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.success-message {
+  font-size: 1.2em;
+  font-weight: bold;
+}
